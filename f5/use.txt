@@ -1,0 +1,10 @@
+   1. publisher_dashboard
+   2. Require the delivery_time and impressions
+   3. impressions comes from sum(impressions),ads
+   4. Colums are:
+
+publisher_id : long from message : Finance.publisher_payments_id
+
+delivery_time: String from message: AdData .delivery_time
+
+impression; int COUNT each entry found for grouping Ad.client_type, client_id

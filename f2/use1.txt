@@ -1,0 +1,30 @@
+1)
+
+#  admin_campaign_wise_reports 
+#  Require the clicks,amount spend and impression (from impression the percentages and from clicks and impression the ctr can be defined)
+# | field          | clicks | ads  | noads |
+  | impression     |    no  |  yes |    no |
+  | clicks         |   yes  |  no  |    no |
+  | amount spend   |  yes   |  yes |    no |
+  | ctr            |  no    |  yes |    no |
+#  Colums are:
+
+campaign_id  : long from message : Ad.campaign_id .
+
+delivery_time : String from message: AdData.delivery_time.
+
+clicks : int from message: AdData.clicks.
+
+clicks : int COUNT each entry found for grouping campaign_id and checking the delivery_time.
+
+amount spend ($) : double from message: Finance.cost.
+
+amount spend ($) : int COUNT each entry found for grouping campaign_id and checking the delivery_time.
+
+impression : int from message: AdData.clicks.
+
+impression : int COUNT each entry found for grouping publisher_id and checking the delivery_time.
+
+ctr : int COUNT each entry found by this formula:((sum(clicks)/sum(impressions))*100) and grouping the campaign_id and checking the delivery_time. 
+
+percentage : int COUNT each entry found based on  sum of impressions divided by sum of impressions for all campaigns then into 100((sum(impressions) for particular campaign/sum(impressions) for all campaign)*100)  for grouping publisher_id and checking the delivery_time. 
