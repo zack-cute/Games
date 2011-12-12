@@ -8,3 +8,5 @@ publisher_id : long from message : Finance.publisher_payments_id
 delivery_time: String from message: AdData .delivery_time
 
 impression; int COUNT each entry found for grouping Ad.client_type, client_id
+
+sub sub sub
